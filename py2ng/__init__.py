@@ -2,10 +2,33 @@ import inspect
 from marshmallow import Schema, fields
 
 TYPE_MAP = {
-    fields.Integer: 'number',
-    fields.Float: 'number',
-    fields.String: 'string',
+    fields.Bool: 'bool',
     fields.Boolean: 'bool',
+    fields.Constant: 'any',
+    fields.DateTime: 'Date',
+    fields.Decimal: 'number',
+    fields.Dict: 'object',
+    fields.Email: 'string',
+    fields.Field: 'any',
+    fields.Float: 'number',
+    fields.Function: 'any',
+    fields.Int: 'number',
+    fields.Integer: 'number',
+    fields.List: 'any[]',
+    fields.LocalDateTime: 'Date',
+    fields.LocalDateTime: 'Date',
+    fields.Mapping: 'any',
+    fields.Method: 'any',
+    fields.Nested: 'any',
+    fields.Number: 'number',
+    fields.Raw: 'any',
+    fields.Str: 'string',
+    fields.String: 'string',
+    fields.TimeDelta: 'any',
+    # fields.Tuple: 'any',
+    fields.URL: 'string',
+    fields.Url: 'string',
+    fields.UUID: 'string',
 }
 
 
