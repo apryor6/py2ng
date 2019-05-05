@@ -14,3 +14,29 @@ This will print out the converted interface. If you want the outputted keys to b
 in lowerCamelCase, pass the `--camel-case` flag
 
 `ng2py path/to/file/with/schema.py --camel-case`
+
+### Example output
+
+```bash
+py2ng app/api/doodads/widget.py --camel-case
+```
+
+Where app/api/doodads/widget.py contains
+
+```python
+class WidgetSchema(ma.Schema):
+    an_int = ma.fields.Integer()
+    a_float = ma.fields.Float()
+    a_str = ma.fields.String(256)
+```
+
+Results in
+
+```typescript
+export interface WidgetInterface {
+    anInt: number,
+    aFloat: number,
+    aStr: string,
+}
+    
+```
