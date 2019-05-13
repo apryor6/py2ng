@@ -41,7 +41,8 @@ def filter_schemas(module):
     schemas = [(name, obj) for (name, obj)
                in inspect.getmembers(module)
                if inspect.isclass(obj)
-               and issubclass(obj, Schema)]
+               and issubclass(obj, Schema)
+               and obj is not Schema]  # ignore lines that import Marshmallow.Schema
     return schemas
 
 
