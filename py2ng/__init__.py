@@ -54,7 +54,7 @@ def sch_to_intrf(name, schema, conv_camel=False):
     for k, v in schema._declared_fields.items():
         ts_type = TYPE_MAP.get(type(v), 'any')
         fields.append(
-            f'{indent}{k if not conv_camel else to_camel(k)}: {ts_type},')
+            f'{indent}{k if not conv_camel else to_camel(k)}: {ts_type};')
     fields = '\n'.join(fields)
     CONTENT = f'''export interface {name} {{
 {fields}
