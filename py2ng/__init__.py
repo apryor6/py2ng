@@ -15,8 +15,6 @@ TYPE_MAP = {
     fields.Int: 'number',
     fields.Integer: 'number',
     fields.List: 'any[]',
-    fields.LocalDateTime: 'Date',
-    fields.LocalDateTime: 'Date',
     fields.Mapping: 'any',
     fields.Method: 'any',
     fields.Nested: 'any',
@@ -30,6 +28,18 @@ TYPE_MAP = {
     fields.Url: 'string',
     fields.UUID: 'string',
 }
+
+VersionDependentTypes = {
+    'LocalDateTime': 'Date',
+    'NaiveDateTime': 'Date',
+    'AwareDateTime': 'Date',
+}
+
+for (pytype, ngtype) in VersionDependentTypes.items():
+    try:
+        TYPE_MAP[getattr(fields, pytype)] = ngtype
+    except AttributeError:
+        continue
 
 
 def to_camel(snake):
